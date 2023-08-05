@@ -1,14 +1,15 @@
-import { FC } from "react";
+import React from "react";
 
-interface INewDocButton {
-  backgroundColor?: string;
+interface INewDocButton extends React.HtmlHTMLAttributes<HTMLButtonElement> {
+  // custom propertied go here
   disabled?: boolean;
 }
 
-const NewDocButton: FC<INewDocButton> = ({ backgroundColor, disabled }) => {
+const NewDocButton = ({ disabled, className, ...props }: INewDocButton) => {
+  console.log("props will go here", props);
   return (
     <div>
-      <button disabled={disabled} style={{ backgroundColor: backgroundColor }}>
+      <button {...props} disabled>
         Cool btn
       </button>
     </div>
